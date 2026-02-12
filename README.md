@@ -27,12 +27,14 @@ AI-powered WhatsApp assistant for Indian SMBs. Never miss a customer again.
 
 ## Quick Start
 
-### 1. Get Twilio Account
-1. Sign up at [twilio.com](https://twilio.com)
-2. Get WhatsApp Business API access
-3. Note: Account SID, Auth Token, and WhatsApp number
+### 1. Get Twilio Account (Free)
 
-### 2. Deploy
+1. Sign up at [twilio.com](https://twilio.com) - ₹500 free credits
+2. Go to WhatsApp Sandbox in Twilio Console
+3. Note: Account SID, Auth Token from Console
+4. Your WhatsApp number will be: `whatsapp:+14155238886`
+
+### 2. Deploy to Render (Free)
 
 **Option A: Render (Free)**
 ```bash

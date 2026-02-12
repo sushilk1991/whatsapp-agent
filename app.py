@@ -10,7 +10,6 @@ import logging
 from datetime import datetime
 from flask import Flask, request, jsonify
 from twilio.rest import Client
-from twilio.twiml import MessagingResponse
 import requests
 import re
 
