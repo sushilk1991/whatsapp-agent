@@ -37,8 +37,12 @@
         
         .cta { text-align: center; padding: 80px 20px; background: #128C7E; color: white; }
         .cta h2 { font-size: 2.5rem; margin-bottom: 20px; }
-        .cta button { background: #25D366; color: white; border: none; padding: 18px 50px; font-size: 1.2rem; font-weight: 600; border-radius: 30px; cursor: pointer; margin-top: 20px; transition: transform 0.2s; }
+        .cta input { padding: 15px 20px; font-size: 1rem; border: none; border-radius: 30px; width: 280px; margin-right: 10px; }
+        .cta button { background: #25D366; color: white; border: none; padding: 18px 40px; font-size: 1.2rem; font-weight: 600; border-radius: 30px; cursor: pointer; margin-top: 20px; transition: transform 0.2s; }
         .cta button:hover { transform: scale(1.05); }
+        .waitlist-form { margin-top: 20px; }
+        .waitlist-form input { padding: 15px 20px; font-size: 1rem; border: none; border-radius: 30px; width: 250px; margin-right: 10px; }
+        .waitlist-form button { padding: 15px 30px; }
         
         footer { text-align: center; padding: 30px; color: #6b7280; }
         
@@ -134,10 +138,29 @@
     </div>
     
     <div class="cta">
-        <h2>🚀 Ready to Start?</h2>
-        <p>Set up in 5 minutes. No credit card needed for free trial.</p>
-        <button>Get Started Free</button>
+        <h2>🚀 Get Early Access</h2>
+        <p>Be the first to know when we launch.</p>
+        <div class="waitlist-form">
+            <input type="email" id="email" placeholder="Your email" required>
+            <button onclick="joinWaitlist()">Join Waitlist</button>
+        </div>
+        <p id="waitlist-msg" style="margin-top:15px;font-size:0.9rem;"></p>
     </div>
+    
+    <script>
+    function joinWaitlist() {
+        const email = document.getElementById('email').value;
+        if (!email) return;
+        
+        // Store in localStorage for now (use waitlist.php in production)
+        let waitlist = JSON.parse(localStorage.getItem('whatsapp_waitlist') || '[]');
+        waitlist.push({email: email, date: new Date().toISOString()});
+        localStorage.setItem('whatsapp_waitlist', JSON.stringify(waitlist));
+        
+        document.getElementById('waitlist-msg').textContent = '✓ You\'re on the list!';
+        document.getElementById('waitlist-msg').style.color = '#25D366';
+    }
+    </script>
     
     <footer>
         <p>🇮🇳 Made in India | Powered by AI</p>
